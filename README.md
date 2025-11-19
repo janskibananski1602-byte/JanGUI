@@ -19,6 +19,6 @@ loadstring(game:HttpGet("https://pastefy.app/pviNRilX/raw"))()
 
 # **LINKS:**
 
-Discord: [NONE FOR NOW]
+Discord: https://discord.gg/KQv8286R9m
 
 YouTube: https://www.youtube.com/@Jan-Dev
