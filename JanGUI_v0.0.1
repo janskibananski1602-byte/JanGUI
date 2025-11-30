@@ -1,0 +1,122 @@
+--[[
+JanGUI
+v0.0.1
+Pre-Release
+By Jan
+]]
+
+    game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "JanGUI v0.0.1",
+      Text = "Loading...",
+      Duration = 5
+    }
+  )
+
+
+--//Library//--
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/preztel/AzureLibrary/master/uilib.lua", true))()
+
+--//Tabs//--
+local TitleTab = Library:CreateTab("JanGUI v0.0.1 Pre-Release", "Welcome to JanGUI", true) 
+--true means darkmode is enabled and false means its disabled
+--if you leave it empty you have a custom theme.
+local VisualsTab = Library:CreateTab("Visuals", "This is where you can mess around and pretend to be c00lkidd", true) 
+--true means darkmode is enabled and false means its disabled
+--if you leave it empty you have a custom theme.
+local TrollingTab = Library:CreateTab("Trolling", "This is where you can mess around with other people, mostly FE", true) 
+--true means darkmode is enabled and false means its disabled
+--if you leave it empty you have a custom theme.
+
+--//Buttons//--
+VisualsTab:CreateButton("Disco", function()
+  local Lighting = game:GetService("Lighting")
+  local RunService = game:GetService("RunService")
+  Lighting.FogStart = 0
+  Lighting.FogEnd = 100
+  local hue = 0
+  local speed = 1
+  local connection = RunService.Heartbeat:Connect(function(deltaTime)
+    hue = (hue + deltaTime * speed) % 1
+    Lighting.FogColor = Color3.fromHSV(hue, 1, 1)
+  end)
+end)
+TrollingTab:CreateButton("FE Collection", function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/sypcerr/FECollection/refs/heads/main/script.lua",true))()
+end)
+TrollingTab:CreateButton("FE Monster Mash R6", function()
+  local gui = Instance.new("ScreenGui")
+  gui.ResetOnSpawn = false
+  gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+  local btn = Instance.new("TextButton")
+  btn.Size = UDim2.new(0, 180, 0, 50)
+  btn.Position = UDim2.new(0.5, -90, 0.8, 0)
+  btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+  btn.TextColor3 = Color3.new(1,1,1)
+  btn.Font = Enum.Font.GothamBold
+  btn.TextSize = 20
+  btn.Text = "Play Animation"
+  btn.Parent = gui
+  btn.MouseButton1Click:Connect(function()
+    local player = game.Players.LocalPlayer
+    local char = player.Character or player.CharacterAdded:Wait()
+    local humanoid = char:WaitForChild("Humanoid")
+    local anim = Instance.new("Animation")
+    anim.AnimationId = "rbxassetid://35654637"
+    local track = humanoid:LoadAnimation(anim)
+    track:Play()
+    task.wait(9)
+    track:Stop()
+  end)
+end)
+TrollingTab:CreateButton("FE Ban Hammer (REQUIRES HAT)", function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Ban%20Hammer"))()
+end)
+TrollingTab:CreateButton("Fake Ban Kick", function()
+  game.Players.LocalPlayer:kick("Unauthorized modifications were detected on your client . For appeals, please visit the support section.")
+end)
+TitleTab:CreateButton("Show Credits", function()
+  game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "Founder / Scripter",
+      Text = "1602sasa2 (Jan)",
+      Duration = 10
+    }
+  )
+    game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "Tester / Suggestor",
+      Text = "fotis19902 (Fotis)",
+      Duration = 10
+    }
+  )
+    game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "Inspiration",
+      Text = "nas9229alt (Nas) - made NasGUI",
+      Duration = 15
+    }
+  )
+end)
+
+
+    game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "JanGUI v0.0.1",
+      Text = "Successfully loaded, enjoy!",
+      Duration = 10
+    }
+  )
+    game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "JanGUI v0.0.1",
+      Text = "This is the latest script.",
+      Duration = 10
+    }
+  )
