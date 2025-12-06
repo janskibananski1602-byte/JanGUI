@@ -1,0 +1,148 @@
+--[[
+JanGUI
+v0.1.0
+Pre-Release
+By Jan
+]]
+
+
+--//Library//--
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/preztel/AzureLibrary/master/uilib.lua", true))()
+
+--//Tabs//--
+local TitleTab = Library:CreateTab("JanGUI v0.1.0 Pre-Release", "Welcome to JanGUI", true) 
+--true means darkmode is enabled and false means its disabled
+--if you leave it empty you have a custom theme.
+local VisualsTab = Library:CreateTab("Visuals", "This is where you can mess around", true) 
+--true means darkmode is enabled and false means its disabled
+--if you leave it empty you have a custom theme.
+local TrollingTab = Library:CreateTab("Trolling", "This is where you can mess around with other people, mostly FE", true) 
+--true means darkmode is enabled and false means its disabled
+--if you leave it empty you have a custom theme.
+
+--//Buttons//--
+VisualsTab:CreateButton("Disco", function()
+    local Players = game:GetService("Players")
+    local RunService = game:GetService("RunService")
+    local player = Players.LocalPlayer
+    local playerGui = player:WaitForChild("PlayerGui")
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "RainbowOverlayGui"
+    screenGui.ResetOnSpawn = false
+    screenGui.IgnoreGuiInset = true
+    screenGui.Parent = playerGui
+    local overlay = Instance.new("Frame")
+    overlay.AnchorPoint = Vector2.new(0, 0)
+    overlay.Position = UDim2.new(0, 0, 0, 0)
+    overlay.Size = UDim2.new(1, 0, 1, 0)
+    overlay.BackgroundTransparency = 0.5
+    overlay.BorderSizePixel = 0
+    overlay.ZIndex = 10
+    overlay.Parent = screenGui
+    local hue = 0
+    local speed = 0.2
+    RunService.RenderStepped:Connect(function(deltaTime)
+    hue = (hue + deltaTime * speed) % 1
+    overlay.BackgroundColor3 = Color3.fromHSV(hue, 1, 1)
+    end)
+end)
+TrollingTab:CreateButton("FE Collection", function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/sypcerr/FECollection/refs/heads/main/script.lua",true))()
+end)
+VisualsTab:CreateButton("Jumpscare (NO SOUND)", function()
+    for i,v in pairs(game.Players:GetPlayers()) do
+        if v.Name ~= k and not v.PlayerGui:FindFirstChild("Screamer") and v:FindFirstChild("PlayerGui") then
+            spawn(function()
+                local gui = Instance.new("ScreenGui",v.PlayerGui)
+                local funny = Instance.new("ImageLabel",gui)
+                funny.Image = "rbxassetid://115902519279926"
+                funny.Size = UDim2.new(1,0,1,0)
+                wait(10)
+                gui:Destroy()
+            end)
+        end
+    end
+end)
+TrollingTab:CreateButton("FE Monster Mash R6", function()
+  local gui = Instance.new("ScreenGui")
+  gui.ResetOnSpawn = false
+  gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+  local btn = Instance.new("TextButton")
+  btn.Size = UDim2.new(0, 180, 0, 50)
+  btn.Position = UDim2.new(0.5, -90, 0.8, 0)
+  btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+  btn.TextColor3 = Color3.new(1,1,1)
+  btn.Font = Enum.Font.GothamBold
+  btn.TextSize = 20
+  btn.Text = "Play Animation"
+  btn.Parent = gui
+  btn.MouseButton1Click:Connect(function()
+    local player = game.Players.LocalPlayer
+    local char = player.Character or player.CharacterAdded:Wait()
+    local humanoid = char:WaitForChild("Humanoid")
+    local anim = Instance.new("Animation")
+    anim.AnimationId = "rbxassetid://35654637"
+    local track = humanoid:LoadAnimation(anim)
+    track:Play()
+    task.wait(9)
+    track:Stop()
+  end)
+end)
+TrollingTab:CreateButton("Freaky GUI", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
+end)
+TrollingTab:CreateButton("Fake Ban Kick", function()
+  game.Players.LocalPlayer:kick("Unauthorized modifications were detected on your client . For appeals, please visit the support section.")
+end)
+TitleTab:CreateButton("Credits", function()
+  game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "Founder / Scripter",
+      Text = "1602sasa2 (Jan)",
+      Duration = 10
+    }
+  )
+    game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "Tester / Suggestor",
+      Text = "fotis19902 (Fotis)",
+      Duration = 10
+    }
+  )
+    game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "Inspiration",
+      Text = "nas9229alt (Nas) - made NasGUI",
+      Duration = 15
+    }
+  )
+end)
+TrollingTab:CreateButton("Skullface edit troll", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/cx3FfZgw"))()
+end)
+TrollingTab:CreateButton("c00lclan", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/14EU4i8n",true))()
+end)
+TitleTab:CreateButton("Changelogs", function()
+    game.StarterGui:SetCore(
+    "SendNotification",
+    {
+        Title = "JanGUI v0.1.0 ChangeLogs",
+        Text = "Shortened some stuff, Made disco to work on all games (almost), Removed loading and latest script notifications cuz too many, made only 1 notification when loaded, Replaced FE ban hammer with freaky gui r6 r15, Added more stuff in trolling, Added changelogs directly in script, Added jumpscare in visuals (no sound tho).",
+        Duration = 20
+    }
+    )
+end)
+    
+
+    game.StarterGui:SetCore(
+  "SendNotification",
+  {
+      Title = "JanGUI v0.1.0",
+      Text = "Successfully loaded, latest script detected, enjoy!",
+      Duration = 20
+    }
+  )
